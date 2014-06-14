@@ -1,6 +1,6 @@
 #MEAN Stack
 
-##서버 설치
+##클라우드 서버 생성
 
 - 서버 생성 : [아마존 웹 서버](https://console.aws.amazon.com/ec2/v2/home?region=ap-northeast-1)
   - 지역 : 도쿄
@@ -25,7 +25,10 @@ sudo yum install git
 -> y
 git help
 ```
-- NodeJS 설치 : 바이너리 압축 풀고 경로 지정. ln 링크파일 만듦.
+
+##NodeJS 설치
+
+- node 바이너리로 설치. 압축 풀고 경로 지정. ln 링크파일 만듦.
 
 ```
 wget http://nodejs.org/dist/v0.10.28/node-v0.10.28-linux-x64.tar.gz
@@ -38,7 +41,21 @@ ls -l /usr/bin/npm
 node
 npm
 ```
-- MongoDb 설치 : bash_profile 에 경로 추가.
+
+- grunt, bower 설치
+
+```
+sudo npm install -g grunt-cli
+sudo npm install -g bower
+```
+
+> 아마존 리눅스는 아마도 CentOS 기반인듯. yum 커맨드 등이 잘 실행됨.
+> 기본으로 생성되는 ec2-user 계정으로 쭉 설치하고 실행.
+
+
+##MongoDb 설치
+
+- bash_profile 에 경로 추가.
 
 ```
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.1.tgz
@@ -53,15 +70,6 @@ sudo mkdir /data/db
 sudo chown ec2-user:ec2-user /data/db
 mongod
 ```
-- grunt, bower 설치
-
-```
-sudo npm install -g grunt-cli
-sudo npm install -g bower
-```
-
-> 아마존 리눅스는 아마도 CentOS 기반인듯. yum 커맨드 등이 잘 실행됨.
-> 기본으로 생성되는 ec2-user 계정으로 쭉 설치하고 실행.
 
 ## MEAN 설치.
 
@@ -70,13 +78,14 @@ sudo npm install -g bower
 ```
 sudo npm install -g meanio
 mean -h
-mean init fluxus
-cd fluxus
+mean init kimjmin
+cd kimjmin
 npm install
 grunt
 ```
-  - mean init 앱명 : 앱명으로 새로운 Mean 프로젝트 생성.
-  - npm install : package.json 안에 명시된 내용들을 설치함.
+
+- mean init 앱명 : 앱명으로 새로운 Mean 프로젝트 생성.
+- npm install : package.json 안에 명시된 내용들을 설치함.
 
 > 실행시켜보면 제대로 안됨. ㅡㅛㅡ; gcc가 제대로 없어서 그렇다 함.
 > 염으로 gcc 설치하고 지금까지 설치한 모듈 클린하고 재설치. 필요.
@@ -91,7 +100,63 @@ npm install
 ```
 
 - 실행중인 mean 멈추고 myPackage 생성.
+
 ```
-mean package kimjmin
+mean package search
 grunt
 ```
+
+##회원가입
+
+- 회원 가입 화면
+
+![회원가입화면](./img/register.png)
+
+- MongoDB 에서 데이터 확인.
+
+```
+mongo
+db
+show dbs
+use mean-dev
+db
+show collections
+db.users.find()
+db.articles.find()
+```
+
+## Github 에 소스 등록.
+
+- 깃헙 레파지토리 생성 : [https://github.com/fluxus-study/kimjmin](https://github.com/fluxus-study/kimjmin)
+
+![회원가입화면](./img/git_create.png)
+
+```
+git init
+git add .
+git commit -m "종민 Mean 프로젝트 첫 등록"
+git remote add origin git@github.com:fluxus-study/kimjmin.git
+git remote -v
+git push --set-upstream origin master
+```
+
+근데 하려고 하면 안됨... rsa 키 복사 해 줘야 함.
+
+```
+cd
+ssh-keygen -t rsa
+cd .ssh
+ls
+cat id_rsa.pub
+```
+
+이 내용을 깃헙에 등록해야 함.
+- 깃헙 settings > Deploy keys > Add deploy key >
+
+![회원가입화면](./img/key_deploy.png)
+
+```
+git push --set-upstream origin master
+```
+
+깃헙에 업로드 완료.
