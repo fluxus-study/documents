@@ -58,7 +58,7 @@ sudo npm install -g bower
 - bash_profile 에 경로 추가.
 
 ```
-wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.1.tgz
+wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.1.tgz
 tar xvfz mongodb-linux-x86_64-2.6.1.tgz
 sudo mv mongodb-linux-x86_64-2.6.1 /etc/mongodb
 ls -la /etc/mongodb/bin
