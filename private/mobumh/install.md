@@ -1,4 +1,4 @@
-¼³Ä¡
+ì„¤ì¹˜
 ==============================
 - CentOS 6.5 64bit
 - passwd
@@ -15,7 +15,7 @@
 - ./configure
 - make
 - make install
-- dev °èÁ¤
+- dev ê³„ì •
 
 - adduser dev
 - passwd dev
@@ -27,7 +27,7 @@
 - tar xvfz node-v0.10.26-linux-x64.tar.gz
 - cd node-v0.10.26-linux-x64
 - vi ~/.bash_profoile
- - ÇàÃß°¡ PATH=$PATH:/home/dev/local/node-v0.10.26-linux-x64/bin
+ - í–‰ì¶”ê°€PATH=$PATH:/home/dev/local/node-v0.10.26-linux-x64/bin
 . ~/.bash_profile
 
 - cd ~/local
@@ -35,6 +35,6 @@
 - tar xvfz mongodb-linux-x86_64-2.4.9.tgz
 - cd mongodb-linux-x86_64-2.4.9
 - vi ~/.bash_profile
- - ÇàÃß°¡ PATH=$PATH:/home/dev/local/mongodb-linux-x86_64-2.4.9/bin
+ - í–‰ì¶”ê°€ PATH=$PATH:/home/dev/local/mongodb-linux-x86_64-2.4.9/bin
 - mongod --dbpath=/home/dev/data/db
-- grunt¿¡¼­ ¿À·ù. Á¢¼ÓºÒ°¡´ÉÀ¸·Î º¸ÀÓ.
+- grunt ì—ì„œ ì˜¤ë¥˜. ì ‘ì†ë¶ˆê°€ëŠ¥ìœ¼ë¡œ ë³´ì„.
