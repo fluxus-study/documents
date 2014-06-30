@@ -76,6 +76,9 @@ mongod
 - 허광남님 동영상이랑 설치법 좀 다름. npm 인스톨로 바뀜. 편해짐. 짱.
 
 ```
+sudo yum install gcc gcc-c++
+sudo npm install -g node-gyp
+
 sudo npm install -g meanio
 mean -h
 mean init kimjmin
